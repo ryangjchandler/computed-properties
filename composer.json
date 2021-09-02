@@ -1,12 +1,12 @@
 {
-    "name": "nunomaduro/skeleton-php",
-    "description": "A skeleton repository for my packages",
-    "keywords": ["php", "skeleton", "package"],
+    "name": "ryangjchandler/skeleton-php",
+    "description": "A small package to add computed properties to any PHP class.",
+    "keywords": ["php", "computed", "package"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Nuno Maduro",
-            "email": "enunomaduro@gmail.com"
+            "name": "Ryan Chandler",
+            "email": "support@ryangjchandler.co.uk"
         }
     ],
     "require": {
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "NunoMaduro\\SkeletonPhp\\": "src/"
+            "RyanChandler\\Computed\\": "src/"
         }
     },
     "autoload-dev": {
