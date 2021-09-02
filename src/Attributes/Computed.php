@@ -10,6 +10,5 @@ class Computed
     public function __construct(
         public ?string $name = null
     ) {
-
     }
 }

@@ -10,7 +10,7 @@ trait WithComputedProperties
 {
     protected function getComputedHandler(string $name): ?string
     {
-        $method = 'get'.ucwords($name).'Property';
+        $method = 'get' . ucwords($name) . 'Property';
 
         if (method_exists(static::class, $method)) {
             return $method;
@@ -27,7 +27,7 @@ trait WithComputedProperties
         );
 
         foreach ($methods as $method) {
-            $attribute = $method->getAttributes(Computed::class)[0];
+            $attribute    = $method->getAttributes(Computed::class)[0];
             $computedName = $attribute->newInstance()->name ?? $method->getName();
 
             if ($computedName === $name) {

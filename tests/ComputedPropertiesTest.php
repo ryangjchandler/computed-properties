@@ -1,9 +1,8 @@
 <?php
 
+use function PHPUnit\Framework\assertEquals;
 use RyanChandler\Computed\Attributes\Computed;
 use RyanChandler\Computed\Traits\WithComputedProperties;
-
-use function PHPUnit\Framework\assertEquals;
 
 class Example
 {
@@ -25,7 +24,7 @@ class ExampleWithAttributes
         return 'Ryan';
     }
 
-    #[Computed("email")]
+    #[Computed('email')]
     public function getEmail()
     {
         return 'test@test.com';
@@ -33,17 +32,17 @@ class ExampleWithAttributes
 }
 
 it('can compute properties', function () {
-    expect(new Example)->name->toBe('Ryan');
+    expect(new Example())->name->toBe('Ryan');
 });
 
 it('can compute properties defined via attribute', function () {
-    $object = new ExampleWithAttributes;
+    $object = new ExampleWithAttributes();
 
     assertEquals('Ryan', $object->name);
 });
 
 it('can compute properties defined via attribute with custom name', function () {
-    $object = new ExampleWithAttributes;
+    $object = new ExampleWithAttributes();
 
     assertEquals('test@test.com', $object->email);
 });
