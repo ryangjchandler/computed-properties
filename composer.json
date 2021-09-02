@@ -1,5 +1,5 @@
 {
-    "name": "ryangjchandler/skeleton-php",
+    "name": "ryangjchandler/computed-properties",
     "description": "A small package to add computed properties to any PHP class.",
     "keywords": ["php", "computed", "package"],
     "license": "MIT",
