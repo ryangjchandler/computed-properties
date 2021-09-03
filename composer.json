@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "spatie/once": "^3.0"
     },
     "require-dev": {
         "pestphp/pest": "^v1.18",

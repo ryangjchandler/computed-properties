@@ -5,6 +5,8 @@ namespace RyanChandler\Computed\Traits;
 use ReflectionMethod;
 use ReflectionObject;
 use RyanChandler\Computed\Attributes\Computed;
+use RyanChandler\Computed\Attributes\Once;
+use RyanChandler\Computed\Support;
 
 trait WithComputedProperties
 {
@@ -40,8 +42,14 @@ trait WithComputedProperties
 
     public function __get(string $name)
     {
-        if ($method = $this->getComputedHandler($name)) {
-            return $this->{$method}();
+        $method = $this->getComputedHandler($name);
+
+        if (Support::methodHasAttribute($this, $method, Once::class)) {
+            return once(function () use ($method) {
+                return $this->{$method}();
+            });
         }
+
+        return $this->{$method}();
     }
 }
