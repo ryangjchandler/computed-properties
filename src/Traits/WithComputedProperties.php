@@ -20,7 +20,7 @@ trait WithComputedProperties
 
         $methods = array_filter(
             $object->getMethods(
-                ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED | ReflectionMethod::IS_PUBLIC
+                ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED | ReflectionMethod::IS_PRIVATE
             ), function (ReflectionMethod $method) {
                 return count($method->getAttributes(Computed::class)) > 0;
             }
