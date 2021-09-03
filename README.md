@@ -106,3 +106,25 @@ $person = new Person;
 
 echo $person->name; // 'Ryan Chandler'
 ```
+
+### Memoization
+
+If you would like to only generate the value for a computed property **once** per request, you can add the `RyanChandler\Computed\Attributes\Once` attribute to your method.
+
+```php
+use RyanChandler\Computed\Traits\WithComputedProperties;
+use RyanChandler\Computed\Attributes\Once;
+
+class Person
+{
+    use WithComputedProperties;
+
+    #[Once]
+    public function getRandProperty()
+    {
+        return rand(1, 10000);
+    }
+}
+```
+
+The random number will only be generated once per request. This is useful for expensive computations.
